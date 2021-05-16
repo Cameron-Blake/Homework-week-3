@@ -8,7 +8,7 @@ var confirmNumber;
 var confirmCharacter;
 var confirmLowercase;
 var confirmUppercase;
-
+var choices;
 
 function generatePassword() {
  var characteramount = (prompt("How many characters would you like 8-128?"));
@@ -24,9 +24,67 @@ function generatePassword() {
       var confirmUppercase = confirm("Click OK to confirm if you would like to include Uppercase characters");
 
     }
+
+    if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+      choices = alert("You must choose a criteria!");
+
+  }
+  else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+
+      choices = character.concat(number, lowercase, uppercase);
+  }
+  else if (confirmCharacter && confirmNumber && confirmUppercase) {
+      choices = character.concat(number, uppercase);
+  }
+  else if (confirmCharacter && confirmNumber && confirmLowercase) {
+      choices = character.concat(number, lowercase);
+  }
+  else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+      choices = character.concat(lowercase, uppercase);
+  }
+  else if (confirmNumber && confirmLowercase && confirmUppercase) {
+      choices = number.concat(lowercase, uppercase);
+  }
+  else if (confirmCharacter && confirmNumber) {
+      choices = character.concat(number);
+
+  } else if (confirmCharacter && confirmLowercase) {
+      choices = character.concat(lowercase);
+
+  } else if (confirmCharacter && confirmUppercase) {
+      choices = character.concat(uppercase);
+  }
+  else if (confirmLowercase && confirmNumber) {
+      choices = lowercase.concat(number);
+
+  } else if (confirmLowercase && confirmUppercase) {
+      choices = lowercase.concat(uppercase);
+
+  } else if (confirmNumber && confirmUppercase) {
+      choices = number.concat(uppercase);
+  }
+  else if (confirmCharacter) {
+      choices = character;
+  }
+  else if (confirmNumber) {
+      choices = number;
+  }
+  else if (confirmLowercase) {
+      choices = lowercase;
+  }
+  else if (confirmUppercase) {
+      choices = uppercase;
+  };
+
+  var password = [];
+
+  for (var i = 0; i < enter; i++) {
+      var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+      password.push(pickChoices);
+  }
   }
 
-
+ 
 
 // Write password to the #password input
 function writePassword() {
