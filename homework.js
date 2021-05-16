@@ -76,11 +76,11 @@ function generatePassword() {
       choices = uppercase;
   };
 
-  var password = [];
+  var randompassword = [];
 
-  for (var i = 0; i < enter; i++) {
+  for (var i = 0; i < characteramount; i++) {
       var pickChoices = choices[Math.floor(Math.random() * choices.length)];
-      password.push(pickChoices);
+      randompassword.push(pickChoices);
   }
   }
 
